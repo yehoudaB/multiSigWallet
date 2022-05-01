@@ -48,7 +48,7 @@ contract Wallet {
         approvals[msg.sender][id] = true;
         transfers[id].approvals++;
 
-        if(transfers[id].approvals++ >= quorum){
+        if(transfers[id].approvals >= quorum){
             transfers[id].sent = true;
             address payable to = transfers[id].to;
             uint amount =  transfers[id].amount;
